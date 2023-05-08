@@ -1,12 +1,11 @@
-﻿using GuestLibrary.Models;
-using GuestLibrary.Methods;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
-
+using Methods;
+using Models;
 namespace ConsoleUI
 {
 
@@ -33,7 +32,7 @@ namespace ConsoleUI
 
                 guest.FirstName = GuestsMethods.RetrieveDataFromGuests("What is your First name: ");
                 guest.LastName = GuestsMethods.RetrieveDataFromGuests("What is your Last name: ");
-                guest.Email = new MailAddress(GuestsMethods.RetrieveDataFromGuests("What is your Email Address: "));
+                guest.Email = GuestsMethods.RetrieveEmail("What is your Email Address: ");
                 guest.Birthday = GuestsMethods.RetrieveBirthdayFromGuest("When is your Birthday (month/day/year): ");
                 guest.MessageToHost = GuestsMethods.RetrieveDataFromGuests("What is your Message: ");
                 moreGuests = GuestsMethods.RetrieveDataFromGuests("Will there be more guests (yes/no): ");

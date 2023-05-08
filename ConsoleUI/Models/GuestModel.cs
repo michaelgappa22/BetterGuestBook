@@ -5,7 +5,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GuestLibrary.Models
+namespace Models
 {
     public class GuestModel
     {

@@ -1,11 +1,13 @@
-﻿using GuestLibrary.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using Models;
 
-namespace GuestLibrary.Methods
+namespace Methods
 {
     public class GuestsMethods
     {
@@ -33,6 +35,29 @@ namespace GuestLibrary.Methods
             Console.WriteLine(message);
             string data = Console.ReadLine();
             return data;
+        }
+
+        public static MailAddress RetrieveEmail(string message)
+        {
+            Console.WriteLine(message);
+            do
+            {
+                try
+                {
+                    return ConvertEmail(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.WriteLine("That is not a valid email, please try again.");
+                    Console.WriteLine(message);
+                }
+            } while (true);
+        }
+
+        public static MailAddress ConvertEmail(string email)
+        {
+            MailAddress convertEmailAddress = new MailAddress(email);
+            return convertEmailAddress;
         }
 
         public static DateTime RetrieveBirthdayFromGuest(string message)
